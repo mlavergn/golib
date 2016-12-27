@@ -8,8 +8,9 @@ func FooTimesTwo(x int) int {
 }
 
 //export FooWorld
-func FooWorld(x string) string {
-	return x + " World"
+func FooWorld(x string) *C.char {
+	return C.CString(x + " World")
 }
 
-func main() {}
+func main() {
+}

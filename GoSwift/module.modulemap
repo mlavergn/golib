@@ -1,0 +1,5 @@
+module GoSwift [system] {
+    header "/Users/mlavergn/golang/src/golib/libtest.h"
+    link "test"
+    export *
+}

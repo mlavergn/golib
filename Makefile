@@ -7,7 +7,7 @@
 FLAGS  :=
 OUTPUT := test
 
-all: fmt build
+all: fmt build swift
 
 fmt:
 	go fmt *.go
@@ -18,9 +18,19 @@ build:
 test:
 	go test
 
-run:
-	go run
+run: all
+	./swiftsrc/.build/debug/Main
 
-clean:
+clean: swiftclean
 	go clean
 	rm lib$(OUTPUT).h
+
+swift: swiftclean swiftsetup
+	cd swiftsrc; swift build -v -Xlinker -L -Xlinker /Users/mlavergn/golang/src/golib
+
+swiftclean:
+	cd GoSwift; rm -rf .git;
+	cd swiftsrc; rm -rf Packages .build
+
+swiftsetup:
+	cd GoSwift; rm -rf .git; git init; git add module.modulemap Package.swift; git commit -m "init"; git tag -a 1.0.0 -m "init";
