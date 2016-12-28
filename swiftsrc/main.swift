@@ -1,5 +1,5 @@
 import GoSwift
-	import Foundation
+import Foundation
 
 // strings need conversion
 let goParam = GoString(p:"Hello", n:5)
