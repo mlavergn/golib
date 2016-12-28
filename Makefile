@@ -26,7 +26,7 @@ clean: swiftclean
 	rm lib$(OUTPUT).h
 
 swift: swiftclean swiftsetup
-	cd swiftsrc; swift build -v -Xlinker -L -Xlinker /Users/mlavergn/golang/src/golib
+	cd swiftsrc; swift build -v -Xlinker -L -Xlinker $(HOME)/golang/src/golib
 
 swiftclean:
 	cd GoSwift; rm -rf .git;

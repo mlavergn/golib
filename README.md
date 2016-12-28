@@ -6,9 +6,9 @@ Introduction
 --
 Not quite bare bones Golang shared library code with calling semantics for other languages
 
-The goal of Golib is primarily to act as template code. There's no real functionality outside of being a howto.
+The goal of Golib is to act as template code. There's no real functionality outside of basic demos.
 
-A Makefile is provided to encapsulate the build process, it is entirely optional.
+A Makefile is provided to demonstrate the build targets, it is entirely optional.
 
 Dependencies
 --
@@ -17,11 +17,33 @@ No external dependencies
 Installation
 --
 ```bash
+	# The demo configuration assumes that the project is located in:
+	echo $HOME/golang/src/golib
+
+	mkdir -p $HOME/golang/src
+	cd $HOME/golang/src
 	git clone https://github.com/mlavergn/golib.git; rm -rf golib/.git
 	cd golib
-	make
-	-or-
-	go build -o libfoo.so -buildmode=c-shared golib
+```
+	
+Commands
+--
+```bash
+	# build golib and swift rig
+	make all
+
+	# run swift rig
+	make swiftrun
+
+	# build golib
+	make build
+	
+	# build swift rig
+	make swift
+	
+	# cleanup build files
+	make clean
+
 ```
 
 Examples
